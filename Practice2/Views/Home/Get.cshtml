@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Practice2.Models.Bank>
+
+@{
+    ViewData["Title"] = "Get";
+}
+
+<h1>Get</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OnAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inComing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Out)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRegis)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OnAccount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inComing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Out)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRegis)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="DeleteDeposit" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
